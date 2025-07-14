@@ -1,17 +1,18 @@
+# Use official Python base image
 FROM python:3.11-slim
 
-# Install pip & build tools
-RUN apt-get update && apt-get install -y build-essential
-
-# Set working directory
+# Set workdir
 WORKDIR /app
 
-# Copy everything into the container
+# Copy files
 COPY . .
 
-# Install Python dependencies
-RUN pip install --no-cache-dir -r requirements.txt
+# Install dependencies
+RUN pip install -r requirements.txt
 
-# Run FastAPI using uvicorn
-CMD ["python", "-m", "uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8080"]
+# Expose port
+EXPOSE 8080
+
+# Run FastAPI with Uvicorn
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8080"]
 

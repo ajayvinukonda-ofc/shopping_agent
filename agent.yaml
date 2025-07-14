@@ -1,0 +1,5 @@
+name: shopping_agent
+version: 1.0
+description: A simple shopping agent that checks if a product is available and its price.
+entrypoint: main.py
+class: ShoppingAgent
