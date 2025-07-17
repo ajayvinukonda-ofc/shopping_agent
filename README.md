@@ -6,18 +6,23 @@ A simple FastAPI shopping agent.
 - Checks if a product is available
 - Shows product price
 - Uses CSV as data source
-- Dockerized
-- Ready for Cloud Run or Fly.io
 
-## Run locally
-```bash
-uvicorn main:app --reload
+# folder must be like this
 
-docker build -t shopping-agent .
-docker run -p 8080:8080 shopping-agent
+shopping_agent/
+├── static/
+│   └── script.js
+├── templates/
+│   └── index.html
+├── main.py
+├── products.csv
 
-Check it
+# after this open the terminal 
+- cd "your folder direction"
+- enter this "pip install fastapi uvicorn"
+- enter this "pip freeze > requirements.txt"
+- "uvicorn main:app --reload
+"
+- visit this "http://127.0.0.1:8000/"
 
-http://localhost:8080/
 
-http://localhost:8080/check?name=apple
